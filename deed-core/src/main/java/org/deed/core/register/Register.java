@@ -5,7 +5,6 @@ package org.deed.core.register;
  * @author hejian
  *
  */
-public interface Register {
-	
-	public void register(Object object);
+public abstract class Register {
+	public abstract void register(Object object);
 }

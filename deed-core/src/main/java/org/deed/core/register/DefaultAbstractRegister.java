@@ -9,8 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
-@Component
-public class DefaultAbstractRegister implements Register,ApplicationContextAware {
+public class DefaultAbstractRegister extends Register implements ApplicationContextAware {
 	
 	private ApplicationContext applicationContext;
 
@@ -37,5 +36,6 @@ public class DefaultAbstractRegister implements Register,ApplicationContextAware
 	public void register(Object o) {
 		System.out.println("发布服务 " + o.getClass().getAnnotation(RpcService.class).value().getName());
 		REGISTERSERVICE.put(o.getClass().getAnnotation(RpcService.class).value().getName(), o);
+		//注册nameservice 服务列表
 	}
 }

@@ -11,12 +11,13 @@ import org.springframework.context.annotation.Configuration;
 public class CommonConfig {
 	
 	@Bean
+	public DefaultAbstractRegister defaultAbstractRegister() {
+		return new DefaultAbstractRegister();
+	}
+	
+	@Bean
 	public AbstractDeedServce abstractDeedServce() {
 		return new DefaultAbstractDeedServce();
 	}
 	
-	/*@Bean
-	public DefaultAbstractRegister defaultAbstractRegister() {
-		return new DefaultAbstractRegister();
-	}*/
 }
