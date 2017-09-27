@@ -23,7 +23,7 @@ import io.netty.channel.SimpleChannelInboundHandler;
 public class RpcClientHandler extends SimpleChannelInboundHandler<DeedResponse> {
 	private Logger								logger		= LoggerFactory.getLogger(RpcClientHandler.class);
 	// 持有DeedFuture
-	private static final Map<Long, DeedFuture>	PENDINGRPC	= new ConcurrentHashMap<Long, DeedFuture>();
+	public static final Map<Long, DeedFuture>	PENDINGRPC	= new ConcurrentHashMap<Long, DeedFuture>();
 	// 线程安全保证内存可见性
 	private volatile Channel					channel;
 

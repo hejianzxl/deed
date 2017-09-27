@@ -34,7 +34,7 @@ public class DefaultAbstractRegister extends Register implements ApplicationCont
 
 	@Override
 	public void register(Object o) {
-		System.out.println("发布服务 " + o.getClass().getAnnotation(RpcService.class).value().getName());
+		System.out.println("发布RPC服务 " + o.getClass().getAnnotation(RpcService.class).value().getName());
 		REGISTERSERVICE.put(o.getClass().getAnnotation(RpcService.class).value().getName(), o);
 		//注册nameservice 服务列表
 	}

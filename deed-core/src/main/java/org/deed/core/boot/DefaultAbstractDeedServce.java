@@ -1,5 +1,7 @@
 package org.deed.core.boot;
 
+import java.net.InetAddress;
+
 import org.deed.client.protocol.DeedDecoder;
 import org.deed.client.protocol.DeedEncoder;
 import org.deed.client.protocol.DeedRequest;
@@ -46,9 +48,13 @@ public class DefaultAbstractDeedServce extends AbstractDeedServce{
 			
 			String[] array = address.split(":");
 			String host = array[0];
+			try {
+				host = InetAddress.getLocalHost().getHostAddress();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			int port = Integer.parseInt(array[1]);
 			ChannelFuture future = serverBootstrap.bind(host, port).sync();
-			//TODO 发布服务 nameServer
 			future.channel().closeFuture().sync();
 		} finally {
 			worker.shutdownGracefully();
