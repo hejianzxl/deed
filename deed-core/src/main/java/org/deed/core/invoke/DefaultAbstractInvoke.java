@@ -23,7 +23,7 @@ public abstract class DefaultAbstractInvoke implements Invoke {
 					System.out.println("调用次数统计");
 				}
 			});
-			execute(request);
+			return execute(request);
 		}
 		return null;
 	}
