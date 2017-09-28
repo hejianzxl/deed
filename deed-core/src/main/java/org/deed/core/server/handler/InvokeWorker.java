@@ -2,7 +2,8 @@ package org.deed.core.server.handler;
 
 import org.deed.client.protocol.DeedRequest;
 import org.deed.client.protocol.DeedResponse;
-import org.deed.core.invoke.DefaultInvoke;
+import org.deed.core.invoke.CglibInvoke;
+import org.deed.core.invoke.DefaultAbstractInvoke;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,7 +27,7 @@ public class InvokeWorker implements Runnable {
 		DeedResponse response = new DeedResponse();
 		response.setRequestId(request.getInvoikeId());
 		try {
-			Object result = DefaultInvoke.class.newInstance().invoke(request);
+			Object result = CglibInvoke.class.newInstance().invoke(request);
 			response.setResult(result);
 		} catch (Exception e) {
 			response.setError(e.getMessage());

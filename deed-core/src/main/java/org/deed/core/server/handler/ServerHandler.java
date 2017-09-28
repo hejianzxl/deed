@@ -11,7 +11,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 import org.deed.client.protocol.DeedRequest;
 import org.deed.client.protocol.DeedResponse;
-import org.deed.core.invoke.DefaultInvoke;
+import org.deed.core.invoke.DefaultAbstractInvoke;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import io.netty.channel.ChannelFuture;

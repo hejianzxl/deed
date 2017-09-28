@@ -8,11 +8,12 @@ import org.deed.client.future.DeedFuture;
 import org.deed.client.handler.RpcClientHandler;
 import org.deed.client.protocol.DeedRequest;
 
-public class ObjectProxy<T> implements InvocationHandler {
+public class ObjectProxyFactory<T> implements InvocationHandler {
 	
+	//代理对象类型
 	private Class<T> classzz;
 
-	public ObjectProxy(Class<T> classzz) {
+	public ObjectProxyFactory(Class<T> classzz) {
 		this.classzz = classzz;
 	}
 

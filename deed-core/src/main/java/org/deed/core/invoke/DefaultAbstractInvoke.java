@@ -10,20 +10,25 @@ import org.deed.core.register.DefaultAbstractRegister;
 import net.sf.cglib.reflect.FastClass;
 import net.sf.cglib.reflect.FastMethod;
 
-public class DefaultInvoke implements Invoke {
+public abstract class DefaultAbstractInvoke implements Invoke {
 
 	@Override
 	public Object invoke(Object object) throws InvocationTargetException {
 		if(object.getClass().isAssignableFrom(DeedRequest.class)) {
 			DeedRequest request = (DeedRequest) object;
-			String interfaceName = request.getInterfaceName();
-			//可以直接spring application 获取，无需再次缓存
-			Object bean = DefaultAbstractRegister.REGISTERSERVICE.get(interfaceName);
-			FastClass fastClass = FastClass.create(bean.getClass());
-			FastMethod method = fastClass.getMethod(request.getMethod(), request.getParameterTypes());
-			return method.invoke(bean, request.getParameters());
+			new Thread(new Runnable() {
+				@Override
+				public void run() {
+					//内存监控信息  异步刷盘文件系统内存
+					System.out.println("调用次数统计");
+				}
+			});
+			execute(request);
 		}
 		return null;
 	}
+	
+	
+	public abstract Object execute(DeedRequest request) throws InvocationTargetException;
 
 }

@@ -1,6 +1,9 @@
 package org.deed.client.bootstarp;
 
 import java.net.InetSocketAddress;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Random;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.locks.Condition;
@@ -27,7 +30,9 @@ public class ClientManager {
 	private Logger												logger				= LoggerFactory.getLogger(ClientManager.class);
 	private static final CopyOnWriteArrayList<RpcClientHandler>	connectedHandlers	= new CopyOnWriteArrayList<>();
 	private ReentrantLock										lock				= new ReentrantLock();
-
+	//本地缓存服务列表
+	private static HashSet<InetSocketAddress>	newAllServerNodeSet	= new HashSet<InetSocketAddress>();
+	
 	private ClientManager() {
 		// ignore
 	}
@@ -80,5 +85,30 @@ public class ClientManager {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	
+	/**
+	 * 随机轮询
+	 * @return
+	 */
+	public InetSocketAddress randomRpcServer() {
+		int rdIndex = new Random().nextInt(newAllServerNodeSet.size());
+		int index = 0;
+		for(Iterator it=newAllServerNodeSet.iterator();it.hasNext();) {
+		   if(rdIndex == index) {
+			   return (InetSocketAddress) it.next();
+		   }
+			index++;
+		}
+		return null;
+	}
+	
+	/**
+	 * 注销服务
+	 * @param address
+	 */
+	public void removeServer(InetSocketAddress address) {
+		newAllServerNodeSet.remove(address);
 	}
 }

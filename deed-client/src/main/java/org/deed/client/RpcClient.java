@@ -8,7 +8,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 import org.deed.client.bootstarp.ClientManager;
-import org.deed.client.porxy.ObjectProxy;
+import org.deed.client.porxy.ObjectProxyFactory;
 
 /**
  * 处理注册bean
@@ -24,9 +24,6 @@ public class RpcClient {
 	//异步线程池
 	private static ThreadPoolExecutor			threadPoolExecutor	= new ThreadPoolExecutor(16, 16, 600L,TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(65536));
 	
-	//本地缓存服务列表
-	private static HashSet<InetSocketAddress>	newAllServerNodeSet	= new HashSet<InetSocketAddress>();
-
 	public RpcClient() {
 		this(address, port);
 	}
@@ -48,6 +45,6 @@ public class RpcClient {
 	 */
 	public static <T> T create(Class<T> interfaceClass) {
 		return (T) Proxy.newProxyInstance(interfaceClass.getClassLoader(), new Class<?>[] { interfaceClass },
-				new ObjectProxy<T>(interfaceClass));
+				new ObjectProxyFactory<T>(interfaceClass));
 	}
 }
