@@ -2,6 +2,7 @@ package org.deed.core.demo.serviceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.deed.client.demo.service.UserDO;
 import org.deed.client.demo.service.UserService;
@@ -12,13 +13,22 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public String getName(long id) {
+		try {
+			Thread.sleep(new Random().nextInt(10));
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		return name;
 	}
 
 	@Override
 	public boolean setName(String name) {
+		try {
+			Thread.sleep(new Random().nextInt(10));
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		this.name = name;
-		System.out.println(">>>>>> name " + name);
 		return true;
 	}
 	

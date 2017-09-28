@@ -2,13 +2,18 @@ package org.deed.core.config;
 
 import org.deed.core.boot.AbstractDeedServce;
 import org.deed.core.boot.DefaultAbstractDeedServce;
+import org.deed.core.monit.MonitorTimer;
 import org.deed.core.register.DefaultAbstractRegister;
-import org.deed.core.register.Register;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class CommonConfig {
+	
+	@Bean
+	public MonitorTimer monitorTimer() {
+		return new MonitorTimer();
+	}
 	
 	@Bean
 	public DefaultAbstractRegister defaultAbstractRegister() {
@@ -19,5 +24,4 @@ public class CommonConfig {
 	public AbstractDeedServce abstractDeedServce() {
 		return new DefaultAbstractDeedServce();
 	}
-	
 }

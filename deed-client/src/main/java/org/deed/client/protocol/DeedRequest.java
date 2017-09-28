@@ -16,7 +16,7 @@ public class DeedRequest implements Serializable {
 	
 	private static volatile AtomicInteger invokeIdGenerator = new AtomicInteger(1);
 	//请求ID
-	private final long invoikeId;
+	private final Long invoikeId;
 	//方法名称
 	private String method;
 	//接口名称
@@ -34,7 +34,7 @@ public class DeedRequest implements Serializable {
 		this.invoikeId = invoikeId;
 	}
 	
-	public long invokeId() {
+	public Long invokeId() {
         return invoikeId;
     }
 
@@ -70,7 +70,7 @@ public class DeedRequest implements Serializable {
 		this.parameters = parameters;
 	}
 
-	public long getInvoikeId() {
+	public Long getInvoikeId() {
 		return invoikeId;
 	}
 	
