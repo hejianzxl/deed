@@ -2,11 +2,9 @@ package org.deed.client;
 
 import java.lang.reflect.Proxy;
 import java.net.InetSocketAddress;
-import java.util.HashSet;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-
 import org.deed.client.bootstarp.ClientManager;
 import org.deed.client.porxy.ObjectProxyFactory;
 

@@ -1,10 +1,6 @@
 package org.deed.core.boot;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.stereotype.Component;
 
 public abstract class AbstractDeedServce implements InitializingBean {
 	

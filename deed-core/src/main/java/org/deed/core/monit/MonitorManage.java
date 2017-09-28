@@ -1,16 +1,10 @@
 package org.deed.core.monit;
 
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.locks.ReentrantLock;
-
-import javax.management.monitor.Monitor;
-
 import org.deed.client.protocol.DeedRequest;
 
 public class MonitorManage {

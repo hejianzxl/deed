@@ -1,15 +1,12 @@
 package org.deed.core.boot;
 
 import java.net.InetAddress;
-
 import org.deed.client.protocol.DeedDecoder;
 import org.deed.client.protocol.DeedEncoder;
 import org.deed.client.protocol.DeedRequest;
 import org.deed.client.protocol.DeedResponse;
 import org.deed.core.server.handler.ServerHandler;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
-
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;

@@ -2,12 +2,10 @@ package org.deed.core.register;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-
 import org.deed.client.server.annotation.RpcService;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-import org.springframework.stereotype.Component;
 
 public class DefaultAbstractRegister extends Register implements ApplicationContextAware {
 	

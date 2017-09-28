@@ -5,7 +5,6 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.locks.AbstractQueuedSynchronizer;
-import java.util.concurrent.locks.ReentrantLock;
 import org.deed.client.protocol.DeedRequest;
 import org.deed.client.protocol.DeedResponse;
 
