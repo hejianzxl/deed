@@ -1,4 +1,4 @@
-package org.deed.core.monit;
+package org.deed.montior;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

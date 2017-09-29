@@ -14,6 +14,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public String getName(long id) {
 		try {
+			//模拟调用mysql or 业务逻辑处理
 			Thread.sleep(new Random().nextInt(10));
 		} catch (InterruptedException e) {
 			e.printStackTrace();
@@ -24,6 +25,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public boolean setName(String name) {
 		try {
+			//模拟调用mysql or 业务逻辑处理
 			Thread.sleep(new Random().nextInt(10));
 		} catch (InterruptedException e) {
 			e.printStackTrace();

@@ -1,4 +1,4 @@
-package org.deed.core.monit;
+package org.deed.montior;
 
 import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicInteger;

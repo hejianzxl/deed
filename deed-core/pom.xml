@@ -49,5 +49,10 @@
 			<artifactId>deed-client</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>com.july</groupId>
+			<artifactId>deed-montior</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
   </dependencies>
 </project>

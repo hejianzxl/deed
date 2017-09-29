@@ -2,8 +2,8 @@ package org.deed.core.config;
 
 import org.deed.core.boot.AbstractDeedServce;
 import org.deed.core.boot.DefaultAbstractDeedServce;
-import org.deed.core.monit.MonitorTimer;
 import org.deed.core.register.DefaultAbstractRegister;
+import org.deed.montior.MonitorTimer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
