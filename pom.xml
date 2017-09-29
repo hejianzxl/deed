@@ -9,9 +9,9 @@
 	<modules>
 		<module>deed-client</module>
 		<module>deed-core</module>
-    <module>deed-registry</module>
-    <module>deed-montior</module>
-    <module>deed-example</module>
+   	 	<module>deed-registry</module>
+    	<module>deed-montior</module>
+    	<module>deed-example</module>
   </modules>
 
 	<dependencyManagement>
