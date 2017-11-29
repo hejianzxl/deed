@@ -8,19 +8,22 @@ import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 import org.deed.client.protocol.DeedRequest;
 import org.deed.client.protocol.DeedResponse;
 
+import sun.misc.Unsafe;
+
 public class DeedFuture implements Future<Object>{
 	private DeedSync sync;
 	transient long startTime;
 	private DeedRequest request;
 	private DeedResponse response;
     //等待时间
-    private long responseTimeThreshold = 7000;
+    private final long responseTimeThreshold = 5000;
     
     public DeedFuture(DeedRequest request) {
     	this.request = request;
     	this.startTime = System.currentTimeMillis();
     	this.sync = new DeedSync();
 	}
+    
 
 	@Override
 	public boolean cancel(boolean mayInterruptIfRunning) {
@@ -39,7 +42,9 @@ public class DeedFuture implements Future<Object>{
 
 	@Override
 	public Object get() throws InterruptedException, ExecutionException {
-		sync.acquire(-1);
+		//TODO
+		//sync.acquire(-1);
+		sync.acquire(0);
 		if(this.response!=null) {
 			return this.response.getResult();
 		}else {
@@ -73,7 +78,6 @@ public class DeedFuture implements Future<Object>{
 	static class DeedSync extends AbstractQueuedSynchronizer {
 
         private static final long serialVersionUID = 1L;
-
         //future status
         private final int done = 1;
         private final int pending = 0;
@@ -92,7 +96,6 @@ public class DeedFuture implements Future<Object>{
         }
 
         public boolean isDone() {
-            getState();
             return getState() == done;
         }
     }

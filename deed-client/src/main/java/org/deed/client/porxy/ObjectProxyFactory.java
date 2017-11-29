@@ -10,7 +10,7 @@ import org.deed.client.protocol.DeedRequest;
 
 public class ObjectProxyFactory<T> implements InvocationHandler {
 	
-	//代理对象类型
+	//目标代理对象类型
 	private Class<T> classzz;
 
 	public ObjectProxyFactory(Class<T> classzz) {
