@@ -8,6 +8,11 @@ import org.deed.core.register.DefaultAbstractRegister;
 import net.sf.cglib.reflect.FastClass;
 import net.sf.cglib.reflect.FastMethod;
 
+/**
+ * cglib 代理 invoke
+ * @author hejian
+ *
+ */
 public class CglibInvoke extends DefaultAbstractInvoke{
 
 	@Override

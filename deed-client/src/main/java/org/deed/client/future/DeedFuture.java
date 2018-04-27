@@ -42,7 +42,6 @@ public class DeedFuture implements Future<Object>{
 
 	@Override
 	public Object get() throws InterruptedException, ExecutionException {
-		//TODO
 		//sync.acquire(-1);
 		sync.acquire(0);
 		if(this.response!=null) {

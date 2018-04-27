@@ -36,6 +36,7 @@ public class RpcClientHandler extends SimpleChannelInboundHandler<DeedResponse> 
 			logger.error("channel read  not find Future");
 		} else {
 			future.done(response);
+			// 移除对象 GC
 			PENDINGRPC.remove(requestId);
 		}
 	}
